@@ -6,4 +6,4 @@ from pathlib import Path
 credential_file_path: str = f"{Path(__file__).resolve().parent.parent}/.env"
 
 load_dotenv(credential_file_path)
-KEY = os.getenv("KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
