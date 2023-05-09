@@ -10,7 +10,6 @@ logger: Logger = mylogger.get_logger("main")
 
 def main():
     openai.api_key = mycredential.OPENAI_API_KEY
-    print(mycredential.OPENAI_API_KEY)
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -18,7 +17,7 @@ def main():
             {"role": "user", "content": "1たす1は？"},
         ],
     )
-    print(response["choices"][0]["message"]["content"])
+    logger.info(response["choices"][0]["message"]["content"])
 
 
 def add_one(number: int) -> int:

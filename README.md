@@ -1,5 +1,5 @@
-# python-starter
-Pythonのプロジェクトテンプレート
+# chatgpt-sample
+ChatGPTのAPIをお試しで利用するリポジトリ
 
 ## プロジェクトインストール
 
@@ -10,13 +10,13 @@ poetry install
 ## credentialファイル作成
 
 ```bash
-cp python_starter/.env.sample python_starter/.env
+cp chatgpt_sample/.env.sample chatgpt_sample/.env
 ```
 
 ## プログラム実行
 
 ```bash
-poetry run python python_starter/main.py
+poetry run python chatgpt_sample/main.py
 ```
 
 or 

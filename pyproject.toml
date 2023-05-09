@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "python-starter"
+name = "chatgpt-sample"
 version = "0.1.0"
 description = "Template for Python project"
 authors = ["negi524 <egtnrumpbiizarre.info@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [
-    { include = "application_setting", from = "python_starter" }
+    { include = "application_setting", from = "chatgpt_sample" }
   ]
 
 [tool.poetry.scripts]
-dev = "python_starter.main:main"
+dev = "chatgpt_sample.main:main"
 
 [tool.poetry.dependencies]
 python = "^3.11"
