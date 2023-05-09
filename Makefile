@@ -1,11 +1,11 @@
-main: log/ python_starter/.env
+main: log/ chatgpt_sample/.env
 	poetry run dev
 
 test:
 	poetry run pytest tests/
 
 format:
-	poetry run black python_starter/ tests/
+	poetry run black chatgpt_sample/ tests/
 
 type-check:
-	poetry run mypy python_starter/
+	poetry run mypy chatgpt_sample/
