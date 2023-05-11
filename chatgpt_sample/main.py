@@ -4,22 +4,36 @@ import application_setting.my_credential as mycredential
 from langchain import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
+from langchain.agents import load_tools, initialize_agent
+from langchain.tools import AIPluginTool
 
 # loggerを取得
 logger: Logger = mylogger.get_logger("main")
 
 
 def main():
+    tool = AIPluginTool.from_plugin_url(
+        "https://www.klarna.com/.well-known/ai-plugin.json"
+    )
+    tools = load_tools(["requests"])
+    tools += [tool]
+
     prompt = create_prompt_template()
     prompt_text = prompt.format(subject="ITエンジニア")
 
     chat = ChatOpenAI(model_name="gpt-3.5-turbo")
-    response = chat(
-        [
-            SystemMessage(content="日本語で回答して。"),
-            HumanMessage(content=prompt_text),
-        ]
+
+    agent_chain = initialize_agent(
+        tools, chat, agent="zero-shot-react-description", verbose=True
     )
+    response = agent_chain.run("what t shirts are available in klarna?")
+
+    # response = chat(
+    #     [
+    #         SystemMessage(content="日本語で回答して。"),
+    #         HumanMessage(content=prompt_text),
+    #     ]
+    # )
     logger.info(response)
 
 
