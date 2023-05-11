@@ -12,14 +12,31 @@ logger: Logger = mylogger.get_logger("main")
 
 
 def main():
+    chat_with_plugin()
+    # simple_chat()
+
+
+def simple_chat():
+    prompt = create_prompt_template()
+    prompt_text = prompt.format(subject="ITエンジニア")
+
+    chat = ChatOpenAI(model_name="gpt-3.5-turbo")
+
+    response = chat(
+        [
+            SystemMessage(content="日本語で回答して。"),
+            HumanMessage(content=prompt_text),
+        ]
+    )
+    logger.info(response)
+
+
+def chat_with_plugin():
     tool = AIPluginTool.from_plugin_url(
         "https://www.klarna.com/.well-known/ai-plugin.json"
     )
     tools = load_tools(["requests"])
     tools += [tool]
-
-    prompt = create_prompt_template()
-    prompt_text = prompt.format(subject="ITエンジニア")
 
     chat = ChatOpenAI(model_name="gpt-3.5-turbo")
 
@@ -28,12 +45,6 @@ def main():
     )
     response = agent_chain.run("what t shirts are available in klarna?")
 
-    # response = chat(
-    #     [
-    #         SystemMessage(content="日本語で回答して。"),
-    #         HumanMessage(content=prompt_text),
-    #     ]
-    # )
     logger.info(response)
 
 
