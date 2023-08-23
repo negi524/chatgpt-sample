@@ -14,17 +14,17 @@ dev = "chatgpt_sample.main:main"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-requests = "^2.28.2"
-PyYAML = "^6.0"
+requests = "^2.31.0"
+PyYAML = "^6.0.1"
 python-dotenv = "^1.0.0"
-openai = "^0.27.6"
-langchain = "^0.0.165"
+openai = "^0.27.9"
+langchain = "^0.0.271"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.1"
-black = "^23.1.0"
-mypy = "^1.0.1"
-types-pyyaml = "^6.0.12.8"
+pytest = "^7.4.0"
+mypy = "^1.5.1"
+types-pyyaml = "^6.0.12.11"
+black = "^23.7.0"
 
 [build-system]
 requires = ["poetry-core"]
