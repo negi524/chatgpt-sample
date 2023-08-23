@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "chatgpt-sample"
-version = "0.1.0"
+version = "0.1.1"
 description = "Template for Python project"
 authors = ["negi524 <egtnrumpbiizarre.info@gmail.com>"]
 license = "MIT"
